@@ -19,9 +19,12 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::middleware(['auth'])->group(function(){
+    Route::prefix('admin')->middleware(['admin'])->group(function () {
+        Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('admin.dashboard');
+        Route::get('user-list', [DashboardController::class, 'user_list']);
+    });
 
-Route::prefix('admin')->group(function () {
-    Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('user.dashboard');
 });
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('user.dashboard');
