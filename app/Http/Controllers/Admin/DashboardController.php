@@ -17,7 +17,7 @@ class DashboardController extends Controller
     public function user_list()
     {
         return view('admin.pages.users.index', [
-            'users' => User::where('id', 2)->get()
+            'users' => User::where('role_id', 2)->get()
         ]);
     }
 }
