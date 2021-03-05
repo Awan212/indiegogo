@@ -15,8 +15,8 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::middleware(['auth'])->group(function(){
-    
-    // ADMIN 
+
+    // ADMIN
     Route::group([
         'as' => 'admin.',
         'prefix' => 'admin',
@@ -28,9 +28,14 @@ Route::middleware(['auth'])->group(function(){
         // Users Management System
         Route::get('user-list', [DashboardController::class, 'user_list'])->name('user-list');
     });
-    
+
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('user.dashboard');
+
+    // compaign route
+    Route::get('campaign', function(){
+        return view('public.pages.compaign.index');
+    })->name('compagin');
 });
 
 
