@@ -39,3 +39,11 @@ Route::middleware(['auth'])->group(function(){
 });
 
 
+
+Route::get('project', function(){
+    return view('project');
+});
+
+Route::get('home', function(){
+    return view('home');
+});

@@ -1,0 +1,221 @@
+body {
+  font-family: var(--public-font);
+  letter-spacing: 0.4px;
+}
+
+/* CONTENT SLIDER */
+#content {
+  margin-top: 40px;
+}
+
+#content-slider-image-img {
+  height: 460px;
+  object-fit: cover;
+}
+
+#content-slider-thumbs {
+  margin-top: 20px;
+  left: 50%;
+  position: relative;
+  transform: translateX(-50%); 
+  display: inline-block;
+}
+
+.content-slider-thumb {
+  height: 40px; 
+  width: 40px; 
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  margin-right: 2px;
+}
+
+.content-slider-thumb.active {
+  border: 2px solid var(--public-primary) 
+}
+
+/* CONTENT MAIN */
+#content-main-details-status {
+  text-transform: uppercase;
+  font-size: 17px;
+  color: #088366;
+}
+
+#content-main-details-heading {
+  font-size: 36px;
+  margin-top: 10px;
+  letter-spacing: 0px;
+  line-height: 1.2;
+}
+#content-main-details-description {
+  font-size: 21px;
+  margin-top: 10px;
+  font-family: var(--font-family-sans-serif);
+  font-weight: 400;
+}
+#content-main-details-owner {
+  margin-top: 25px;
+  position: relative;
+}
+#content-main-details-owner-image {
+  display: inline-block;
+  margin-right: 5px;
+}
+#content-main-details-owner-image-img {
+  border-radius: 50%;
+}
+#content-main-details-owner-details {
+  display: inline-block;
+}
+#content-main-details-owner-detail1 {
+  position: absolute;
+  top: -4px;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+}
+#content-main-details-owner-detail2 {
+  position: absolute;
+  top: 18px;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family-sans-serif);
+  font-weight: 400;
+}
+#content-main-details-owner-funds-raised {
+  margin-top: 20px;
+  
+}
+#content-main-details-owner-funds-raised-amount {
+  font-family: var(--font-family-sans-serif);
+  float: left;
+  font-size: 22px;
+}
+#content-main-details-owner-funds-raised-backers-count {
+  font-family: var(--font-family-sans-serif);
+  float: right;
+  font-size: 18px;
+  position: relative;
+  top: 8px;
+}
+#content-main-details-owner-progress {
+  margin-top: 60px;
+  position: relative;
+}
+#content-main-details-owner-bar {
+  height: 10px;
+  border-radius: 5px;
+  background: #ddd;
+}
+#content-main-details-owner-bar-green{
+  background-color: #34ca96;
+  height: 10px;
+  border-radius: 5px;
+  position: absolute;
+  top: 0;
+}
+#content-main-details-owner-amount-completed {
+  margin-top: 5px;
+  font-family: var(--font-family-sans-serif);
+  font-size: 17px;
+}
+#content-main-details-owner-button1 {
+  background: var(--public-primary);
+  font-size: 18px;
+  text-transform: uppercase;
+  padding: 12px 25px;
+  color: #fff;
+  border-radius: 2px;
+  font-weight: bold;
+  margin-right: 7px;
+}
+#content-main-details-owner-button1:hover {
+  background-color: #cf0c67;
+}
+#content-main-details-owner-button2 {
+  border: 1px solid #c8c8c8;
+  font-size: 18px;
+  text-transform: uppercase;
+  padding: 12px 20px;
+  border-radius: 2px;
+}
+#content-main-details-owner-button2:hover{
+  border-color: #949494;
+  background-color: #fafafa;
+}
+#content-secondary-details-tabs {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#content-secondary {
+  margin-top: 20px;
+}
+.content-secondary-details-tab {
+  display: inline-block;
+  margin-right: 20px;
+  color: #2a2a2a;
+  font-size: 16px;
+  font-family: var(--font-family-sans-serif);
+  padding: 15px 0;
+  
+}
+.content-secondary-details-tab:hover {
+  border-bottom: 3px solid #ddd
+}
+.content-secondary-details-tab.active {
+  font-weight: 600;
+  border-bottom: 3px solid #2a2a2a;
+}
+#content-secondary-tabs {
+  margin-top: 35px;
+}
+#content-secondary-tabs-story img {
+  /* width: 334px; */
+  width: 100%;
+}
+
+#content-secondary-perks-title {
+  font-size: 18px;
+  font-family: var(--font-family-sans-serif);
+  font-weight: 500;
+}
+.content-secondary-perk-body {
+  padding: 30px 20px 20px 20px;
+  border: 1px solid #c8c8c8;
+  width: 331px;
+}
+.content-secondary-perk-title {
+  font-size: 24px;
+}
+.content-secondary-perk-price {
+ 
+  font-weight: 700;
+  font-size: 22px;
+}
+.content-secondary-perk-details {
+  margin-top: 10px;
+  font-family: var(--font-family-sans-serif);
+}
+.content-secondary-perk:hover {
+  border: 1px solid #949494;
+  box-shadow: 0 2px 6px -4px rgb(0 0 0 / 20%), 0 8px 10px -4px rgb(0 0 0 / 14%), 0 8px 12px 4px rgb(0 0 0 / 5%);
+  width: 332px;
+  transform: translateY(-1%);
+}
+.content-secondary-perk {
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+
+
+#footer {
+  margin-top: 100px;
+}
+
+
+@media (min-width: 1200px){
+  .container, .container-lg, .container-md, .container-sm, .container-xl {
+      max-width: 1246px;
+  }
+}
