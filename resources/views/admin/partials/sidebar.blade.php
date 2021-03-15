@@ -16,14 +16,14 @@
     <div class="main-menu-content">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
             <li class=" navigation-header"><span>Main</span></li>
-                        
+
             <li class="{{ (Route::currentRouteName() == 'admin.dashboard' ) ? 'active' : '' }} nav-item">
                 <a href="{{ Route('admin.dashboard') }}">
                     <i class="feather icon-home"></i><span class="menu-title">Dashboard</span>
                 </a>
             </li>
 
-            <li class=" navigation-header"><span>Modules</span></li>
+            <li class=" navigation-header"><span>Users</span></li>
 
             <li class="{{ (Route::currentRouteName() == 'admin.user-list' ) ? 'active' : '' }} nav-item">
                 <a href="{{ Route('admin.user-list') }}">
@@ -31,36 +31,19 @@
                 </a>
             </li>
 
+            <li class=" navigation-header"><span>Categories</span></li>
 
-            {{-- ##### Example ##### --}}
-            {{-- Divider Title --}}
-            {{-- <li class=" navigation-header"><span>Apps</span>
-            </li> --}}
-            {{-- Single menu --}}
-            {{-- <li class=" nav-item">
-                <a href="{{ Route('admin.dashboard') }}">
-                        <i class="feather icon-mail"></i><span class="menu-title">Dashboard</span>
+            <li class="{{ (Route::currentRouteName() == 'admin.main-categories.index' ) ? 'active' : '' }} nav-item">
+                <a href="{{ Route('admin.main-categories.index') }}">
+                    <i class="feather icon-menu"></i><span class="menu-title">Main Categories</span>
                 </a>
-            </li> --}}
-            {{-- Menu Level --}}
-            {{-- <li class=" nav-item">
-                <a href="#">
-                    <i class="feather icon-shopping-cart"></i><span class="menu-title">Menu Level</span>
+            </li>
+
+            <li class="{{ (Route::currentRouteName() == 'admin.sub-categories.index' ) ? 'active' : '' }} nav-item">
+                <a href="{{ Route('admin.sub-categories.index') }}">
+                    <i class="feather icon-feather"></i><span class="menu-title">Sub Categories</span>
                 </a>
-                <ul class="menu-content">
-                    <li>
-                        <a href="#">
-                            <i class="feather icon-circle"></i><span class="menu-item">Sub 1</span>
-                        </a>
-                    </li>
-                    <li>
-											<a href="#">
-												<i class="feather icon-circle"></i><span class="menu-item">Sub 2</span>
-											</a>
-                    </li>
-                </ul>
-						</li> --}}
-						
+            </li>
         </ul>
     </div>
 </div>
