@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\MainCategoryController;
+use App\Http\Controllers\SubCategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,6 +29,12 @@ Route::middleware(['auth'])->group(function(){
 
         // Users Management System
         Route::get('user-list', [DashboardController::class, 'user_list'])->name('user-list');
+
+        // Main Categories routes
+        Route::resource('main-categories', MainCategoryController::class);
+
+        // sub categories routes
+        Route::resource('sub-categories', SubCategoryController::class);
     });
 
 
