@@ -48,7 +48,7 @@ Sub Categories
         <!-- Alerts with Title end -->
         @if(Session::has('updated'))
         <!-- Alerts with Title start -->
-        <div class="alert alert-primary" role="alert">
+        <div class="alert alert-info" role="alert">
             <h4 class="alert-heading">
                 Updated
             </h4>
