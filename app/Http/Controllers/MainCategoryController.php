@@ -16,7 +16,7 @@ class MainCategoryController extends Controller
     public function index()
     {
         return view('admin.pages.main-categories.index', [
-            'categories' => MainCategory::orderBy('id', 'DESC')->get()
+            'categories' => MainCategory::with('subCategories')->orderBy('id', 'DESC')->get()
         ]);
     }
 
@@ -70,7 +70,7 @@ class MainCategoryController extends Controller
             $data->save();
 
             return redirect()->route('admin.main-categories.index')->with([
-                'message' => 'New category added successfully.'
+                'created' => 'New category added successfully.'
             ]);
         }
 
@@ -150,7 +150,7 @@ class MainCategoryController extends Controller
             $data->save();
 
             return redirect()->route('admin.main-categories.index')->with([
-                'message' => $request->title.' category updated successfully.'
+                'updated' => $request->title.' category updated successfully.'
             ]);
         }
     }
@@ -165,7 +165,7 @@ class MainCategoryController extends Controller
     {
         $mainCategory->delete();
         return redirect()->route('admin.main-categories.index')->with([
-            'message' => $mainCategory->title.' category remove successfully.'
+            'removed' => $mainCategory->title.' category remove successfully.'
         ]);
     }
 }

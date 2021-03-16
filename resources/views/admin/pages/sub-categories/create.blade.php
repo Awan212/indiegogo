@@ -5,32 +5,9 @@ New Sub Category
 @endsection
 
 @section('styles')
-   <!-- BEGIN: Vendor CSS-->
-   <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/vendors.min.css') }}">
+<!-- BEGIN: Vendor CSS-->
    <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/forms/select/select2.min.css') }}">
-   <!-- END: Vendor CSS-->
-
-   <!-- BEGIN: Theme CSS-->
-   <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/bootstrap.css') }}">
-   <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/bootstrap-extended.css') }}">
-   <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/colors.css') }}">
-   <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/components.css') }}">
-   <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/themes/dark-layout.css') }}">
-   <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/themes/semi-dark-layout.css') }}">
-
-   <!-- BEGIN: Page CSS-->
-   <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/core/menu/menu-types/vertical-menu.css') }}">
-   <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/core/colors/palette-gradient.css') }}">
-   <!-- END: Page CSS-->
-
-   <!-- BEGIN: Custom CSS-->
-   <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
-<link rel="stylesheet" type="text/css"
-    href="{{ asset('app-assets/css/plugins/forms/validation/form-validation.css') }}">
 <!-- END: Vendor CSS-->
-
-<!-- BEGIN: Page CSS-->
-<link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/core/colors/palette-gradient.css') }}">
 <style>
     label {
         font-size: 15px;
@@ -135,24 +112,6 @@ New Sub Category
 @endsection
 
 @section('scripts')
-
-<!-- BEGIN: Vendor JS-->
-<script src="{{ asset('app-assets/vendors/js/vendors.min.js') }}"></script>
-<!-- BEGIN Vendor JS-->
-
-<!-- BEGIN: Theme JS-->
-<script src="{{ asset('app-assets/js/core/app-menu.js') }}"></script>
-<script src="{{ asset('app-assets/js/core/app.js') }}"></script>
-<script src="{{ asset('app-assets/js/scripts/components.js') }}"></script>
-<!-- END: Theme JS-->
-
-<!-- BEGIN: Page Vendor JS-->
-<script src="{{ asset('app-assets/vendors/js/forms/validation/jqBootstrapValidation.js') }}"></script>
-<!-- END: Page Vendor JS-->
-
-<!-- BEGIN: Page JS-->
-<script src="{{ asset('app-assets/js/scripts/forms/validation/form-validation.js') }}"></script>
-<!-- END: Page JS-->
 <!-- BEGIN: Page Vendor JS-->
 <script src="{{ asset('app-assets/vendors/js/forms/select/select2.full.min.js') }}"></script>
 <!-- END: Page Vendor JS-->
