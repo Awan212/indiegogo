@@ -1,23 +1,10 @@
 @extends('admin.layouts.admin')
 
 @section('title')
-Add New Category
+Update Category
 @endsection
 
 @section('styles')
-<!-- BEGIN: Vendor CSS-->
-<link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/vendors.min.css') }}">
-<link rel="stylesheet" href="{{ asset('app-assets/css/bootstrap-extended.css') }}">
-<link rel="stylesheet" type="text/css"
-    href="{{ asset('app-assets/css/plugins/forms/validation/form-validation.css') }}">
-<link rel="stylesheet" type="text/css"
-    href="{{ asset('app-assets/vendors/css/tables/datatable/extensions/dataTables.checkboxes.css') }}">
-<!-- END: Vendor CSS-->
-
-<!-- BEGIN: Page CSS-->
-<link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/core/colors/palette-gradient.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/pages/data-list-view.css') }}">
-<!-- END: Page CSS-->
 <style>
     label {
         font-size: 15px;
@@ -105,28 +92,5 @@ Add New Category
     </div>
 </section>
 <!-- Input Validation end -->
-
-@endsection
-
-@section('scripts')
-
-<!-- BEGIN: Vendor JS-->
-<script src="{{ asset('app-assets/vendors/js/vendors.min.js') }}"></script>
-<!-- BEGIN Vendor JS-->
-
-<!-- BEGIN: Theme JS-->
-<script src="{{ asset('app-assets/js/core/app-menu.js') }}"></script>
-<script src="{{ asset('app-assets/js/core/app.js') }}"></script>
-<script src="{{ asset('app-assets/js/scripts/components.js') }}"></script>
-<!-- END: Theme JS-->
-
-<!-- BEGIN: Page Vendor JS-->
-<script src="{{ asset('app-assets/vendors/js/forms/validation/jqBootstrapValidation.js') }}"></script>
-<!-- END: Page Vendor JS-->
-
-<!-- BEGIN: Page JS-->
-<script src="{{ asset('app-assets/js/scripts/forms/validation/form-validation.js') }}"></script>
-<!-- END: Page JS-->
-
 
 @endsection

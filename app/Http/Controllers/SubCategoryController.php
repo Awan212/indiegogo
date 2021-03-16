@@ -17,7 +17,7 @@ class SubCategoryController extends Controller
     public function index()
     {
         return view('admin.pages.sub-categories.index', [
-            'categories' => SubCategory::with('categories')->orderBY('created_at', 'DESC')->get()
+            'categories' => SubCategory::with('categories')->orderBY('id', 'DESC')->get()
         ]);
     }
 
@@ -80,7 +80,7 @@ class SubCategoryController extends Controller
 
 
             return redirect()->route('admin.sub-categories.index')->with([
-                'message' => 'New category added successfully.'
+                'created' => 'New category added successfully.'
             ]);
         }
     }
@@ -120,7 +120,7 @@ class SubCategoryController extends Controller
     public function update(Request $request, SubCategory $subCategory)
     {
 
-        dd($request->all());
+        // dd($request->all());
         $validator = Validator::make($request->all(), [
             'main_category' => 'required',
             'title' => 'required',
@@ -167,7 +167,7 @@ class SubCategoryController extends Controller
 
 
             return redirect()->route('admin.sub-categories.index')->with([
-                'message' => $request->title.' sub category updated successfully.'
+                'updated' => $request->title.' sub category updated successfully.'
             ]);
         }
     }
@@ -182,7 +182,7 @@ class SubCategoryController extends Controller
     {
         $subCategory->delete();
         return redirect()->route('admin.sub-categories.index')->with([
-            'message' => $subCategory->title.' category remove successfully.'
+            'removed' => $subCategory->title.' category remove successfully.'
         ]);
     }
 }

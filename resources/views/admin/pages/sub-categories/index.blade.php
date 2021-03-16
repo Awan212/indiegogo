@@ -6,18 +6,15 @@ Sub Categories
 
 @section('styles')
 <!-- BEGIN: Vendor CSS-->
-<link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/vendors.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/tables/datatable/datatables.min.css') }}">
-
-<link rel="stylesheet" type="text/css"
-    href="{{ asset('app-assets/vendors/css/tables/datatable/extensions/dataTables.checkboxes.css') }}">
-<!-- END: Vendor CSS-->
-
-<!-- BEGIN: Page CSS-->
-<link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/core/colors/palette-gradient.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/pages/data-list-view.css') }}">
 <!-- END: Page CSS-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+<style>
+    a{
+        font-family: sans-serif;
+    }
+</style>
 @endsection
 
 @section('content')
@@ -37,12 +34,38 @@ Sub Categories
     <!-- dataTable starts -->
 
     <div class="table-responsive mt-2">
-        @if(Session::has('message'))
-         <!-- Alerts with Title start -->
-         <div class="alert alert-success" role="alert">
-            <h4 class="alert-heading">Success</h4>
+        @if(Session::has('created'))
+        <!-- Alerts with Title start -->
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">
+                Created
+            </h4>
             <p class="mb-0">
-                {{ Session::get('message') }}
+                {{ Session::get('created') }}
+            </p>
+        </div>
+        @endif
+        <!-- Alerts with Title end -->
+        @if(Session::has('updated'))
+        <!-- Alerts with Title start -->
+        <div class="alert alert-primary" role="alert">
+            <h4 class="alert-heading">
+                Updated
+            </h4>
+            <p class="mb-0">
+                {{ Session::get('updated') }}
+            </p>
+        </div>
+        @endif
+        <!-- Alerts with Title end -->
+        @if(Session::has('removed'))
+        <!-- Alerts with Title start -->
+        <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">
+                Removed
+            </h4>
+            <p class="mb-0">
+                {{ Session::get('removed') }}
             </p>
         </div>
         @endif
@@ -50,46 +73,34 @@ Sub Categories
         <table class="table data-thumb-view">
             <thead>
                 <tr>
-                    <th>#</th>
-                    <th>Main Categproy</th>
-                    <th>Image</th>
                     <th>Title</th>
                     <th>Sub Title</th>
-                    <th>Adult Confirmation</th>
+                    <th>Main Categproy</th>
                     <th>ACTION</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($categories  as $key => $category )
+                @foreach ($categories as $key => $category )
                 <tr>
-                    <td>{{ $key + 1  }}</td>
-                    <td>{{ $category->categories->title }}</td>
-                    <td class="product-img"><img src="{{ asset($category->image) }}"
-                            alt="Img placeholder">
-                    </td>
                     <td class="product-name">{{ $category->title }}</td>
                     <td class="product-category">{{ $category->sub_title }}</td>
                     <td>
-                        @if($category->adult_confirmation == 1)
-                        <div class="chip chip-warning">
+                        <div class="chip chip-primary">
                             <div class="chip-body">
-                                <div class="chip-text">Yes</div>
-                            </div>
-                        </div>
-                        @else
-                            <div class="chip chip-success">
-                                <div class="chip-body">
-                                    <div class="chip-text">No</div>
+                                <div class="chip-text">
+                                    {{ $category->categories->title }}
                                 </div>
                             </div>
-                        @endif
+                        </div>
                     </td>
                     <td class="product-action">
                         <form action="{{ route('admin.sub-categories.edit', $category->id) }}" method="GET">
                             @csrf
                             <button class="btn" class="action-edit"><i class="feather icon-edit"></i></button>
                         </form>
-                        <button class="btn remove-user" data-id="{{ $category->id }}" data-action="{{ route('admin.sub-categories.destroy', $category->id) }}" class="action-delete"><i class="feather icon-trash"></i></button>
+                        <button class="btn remove-user" data-id="{{ $category->id }}"
+                            data-action="{{ route('admin.sub-categories.destroy', $category->id) }}"
+                            class="action-delete"><i class="feather icon-trash"></i></button>
                     </td>
                 </tr>
                 @endforeach
@@ -108,26 +119,11 @@ Sub Categories
 @section('scripts')
 
 <!-- BEGIN: Vendor JS-->
-<script src="{{ asset('app-assets/vendors/js/vendors.min.js') }}"></script>
-<!-- BEGIN Vendor JS-->
-
-<!-- BEGIN: Page Vendor JS-->
-<script src="{{ asset('app-assets/vendors/js/extensions/dropzone.min.js') }}"></script>
 <script src="{{ asset('app-assets/vendors/js/tables/datatable/datatables.min.js') }}"></script>
-{{-- <script src="{{ asset('app-assets/vendors/js/tables/datatable/datatables.buttons.min.js') }}"></script> --}}
 <script src="{{ asset('app-assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js') }}"></script>
 <script src="{{ asset('app-assets/vendors/js/tables/datatable/buttons.bootstrap.min.js') }}"></script>
-<script src="{{ asset('app-assets/vendors/js/tables/datatable/dataTables.select.min.js') }}"></script>
-<script src="{{ asset('app-assets/vendors/js/tables/datatable/datatables.checkboxes.min.js') }}"></script>
-<!-- END: Page Vendor JS-->
-
-<!-- BEGIN: Theme JS-->
-<script src="{{ asset('app-assets/js/core/app-menu.js') }}"></script>
-<script src="{{ asset('app-assets/js/core/app.js') }}"></script>
-<script src="{{ asset('app-assets/js/scripts/components.js') }}"></script>
 <!-- END: Theme JS-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
-<!-- BEGIN: Page JS-->
 <!-- BEGIN: Page JS-->
 <script src="{{ asset('app-assets/js/scripts/ui/data-list-view.js') }}"></script>
 <!-- END: Page JS-->
@@ -157,5 +153,5 @@ Sub Categories
           }
       });
   });
-  </script>
+</script>
 @endsection
