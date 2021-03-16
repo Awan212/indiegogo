@@ -48,7 +48,7 @@ Main Categories
         <!-- Alerts with Title end -->
         @if(Session::has('updated'))
         <!-- Alerts with Title start -->
-        <div class="alert alert-primary" role="alert">
+        <div class="alert alert-info" role="alert">
            <h4 class="alert-heading">
                Updated
            </h4>
@@ -85,13 +85,15 @@ Main Categories
                     <td class="product-name">{{ $category->title }}</td>
                     <td class="product-category">{{ $category->sub_title }}</td>
                     <td>
-                        @foreach($category->subCategories as $subcategory)
+                        @forelse($category->subCategories as $subcategory)
                         <div class="chip chip-primary">
                             <div class="chip-body">
                                 <div class="chip-text">{{ $subcategory->title }}</div>
                             </div>
                         </div>
-                        @endforeach
+                        @empty
+                        <p class="text-center"> <b>--</b> </p>
+                        @endforelse
                     </td>
                     <td class="product-action">
                         <form action="{{ route('admin.main-categories.edit', $category->id) }}" method="GET">
@@ -134,13 +136,13 @@ Main Categories
       var current_object = $(this);
       swal({
           title: "Are you sure?",
-          text: "You want to delete this category.!",
+          text: "This will delete all the subsequent sub categories and their respective projects... This action cannot be undone!",
           type: "error",
           showCancelButton: true,
           dangerMode: true,
           cancelButtonClass: '#DD6B55',
           confirmButtonColor: '#dc3545',
-          confirmButtonText: 'Delete!',
+          confirmButtonText: 'Force Delete!',
       },function (result) {
           if (result) {
               var action = current_object.attr('data-action');
