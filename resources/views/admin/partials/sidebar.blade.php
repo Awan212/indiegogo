@@ -44,6 +44,19 @@
                     <i class="feather icon-feather"></i><span class="menu-title">Sub Categories</span>
                 </a>
             </li>
+
+            {{-- countires list --}}
+            <li class=" navigation-header"><span>Countires</span></li>
+            <li class="{{ (Route::currentRouteName() == 'admin.countries.index' ) ? 'active' : '' }} nav-item">
+                <a href="{{ Route('admin.countries.index') }}">
+                    <i class="feather icon-feather"></i><span class="menu-title">Countires</span>
+                </a>
+            </li>
+            <li class="{{ (Route::currentRouteName() == 'admin.country-banks.index' ) ? 'active' : '' }} nav-item">
+                <a href="{{ Route('admin.country-banks.index') }}">
+                    <i class="feather icon-feather"></i><span class="menu-title">Country Bank</span>
+                </a>
+            </li>
         </ul>
     </div>
 </div>
