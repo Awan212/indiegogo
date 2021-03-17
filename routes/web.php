@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\CountryBankController;
+use App\Http\Controllers\CountryController;
 use App\Http\Controllers\MainCategoryController;
 use App\Http\Controllers\SubCategoryController;
 use Illuminate\Support\Facades\Route;
@@ -35,11 +37,17 @@ Route::middleware(['auth'])->group(function(){
 
         // sub categories routes
         Route::resource('sub-categories', SubCategoryController::class);
+
+        // countirs list
+        Route::resource('countries', CountryController::class);
+
+        // country banks list
+        Route::resource('country-banks', CountryBankController::class);
     });
 
-
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('user.dashboard');
-
+    Route::middleware('user')->group(function(){
+        Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('user.dashboard');
+    });
     // compaign route
     Route::get('campaign', function(){
         return view('public.pages.compaign.index');
@@ -52,6 +60,3 @@ Route::get('project', function(){
     return view('project');
 });
 
-Route::get('home', function(){
-    return view('home');
-});

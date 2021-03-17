@@ -35,12 +35,12 @@
       <div class="col-6">
         <ul id="nav-menu-container">
           <li class="nav-menu-item" style="float: right;margin-right:5px">
-            <a href="#">
+            <a href="{{ Route('register') }}">
               Sign Up
             </a>
           </li>
           <li class="nav-menu-item login-divider" style="float: right;margin-right:5px">
-            <a href="#">
+            <a href="{{ Route('login') }}">
               Log In
             </a>
           </li>
