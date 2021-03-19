@@ -100,11 +100,11 @@
                                 Inbox</a><a class="dropdown-item" href="app-todo.html"><i
                                     class="feather icon-check-square"></i> Task</a><a class="dropdown-item"
                                 href="app-chat.html"><i class="feather icon-message-square"></i> Chats</a>
-                            <div class="dropdown-divider"></div><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                            <div class="dropdown-divider"></div><a class="dropdown-item" href="{{ route('admin.logout') }}" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();"><i
                                     class="feather icon-power"></i> Logout</a>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>
                         </div>

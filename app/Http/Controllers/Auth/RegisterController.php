@@ -8,7 +8,8 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-
+use Laravel\Socialite\Facades\Socialite;
+use Auth;
 class RegisterController extends Controller
 {
     /*
@@ -53,7 +54,7 @@ class RegisterController extends Controller
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'password' => ['required', 'string', 'min:6'],
         ]);
     }
 
@@ -71,5 +72,30 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+
+    public function socail_login($driver)
+    {
+        $user = Socialite::driver($driver)->user();
+        $check = User::where('email', $user->email)->first();
+        if($check)
+        {
+            Auth::loginUsingId($check->id);
+            return redirect()->route('home');
+        }
+        else {
+            User::create([
+                'first_name' => $user->name,
+                'last_name' => $user->name,
+                'email' => $user->email,
+                'provider_id' => $user->id,
+                'provider'    => $driver,
+                'avatar'      => $user->avatar,
+                'password' => Hash::make('password'),
+            ]);
+            Auth::loginUsingId($check->id);
+            return redirect()->route('home');
+        }
     }
 }
