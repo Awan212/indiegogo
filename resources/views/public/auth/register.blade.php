@@ -3,7 +3,7 @@
 @section('title')
 Register
 @endsection
-@section('scripts')
+@section('styles')
 <style>
     .login-form {
         width: 500px;
@@ -24,7 +24,7 @@ Register
     }
 
 
-    .btn-create {
+    .login-form .btn-create {
         display: block;
         border: none;
         width: 100%;
@@ -38,15 +38,15 @@ Register
         margin-top: 20px;
     }
 
-    .btn-create:hover {
+    .login-form.btn-create:hover {
         opacity: .9;
     }
 
-    .or-text {
+    .login-form .or-text {
         font-size: 18px;
     }
 
-    .btn-facebook {
+    .login-form .btn-facebook {
         display: block;
         width: 100%;
         border: none;
@@ -58,7 +58,7 @@ Register
         height: 38px;
     }
 
-    .btn-linkden {
+    .login-form .btn-linkden {
         display: block;
         width: 100%;
         height: 38px;

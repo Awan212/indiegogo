@@ -85,7 +85,7 @@ class RegisterController extends Controller
             return redirect()->route('home');
         }
         else {
-            User::create([
+            $user = User::create([
                 'first_name' => $user->name,
                 'last_name' => $user->name,
                 'email' => $user->email,
@@ -94,7 +94,7 @@ class RegisterController extends Controller
                 'avatar'      => $user->avatar,
                 'password' => Hash::make('password'),
             ]);
-            Auth::loginUsingId($check->id);
+            Auth::login($user);
             return redirect()->route('home');
         }
     }

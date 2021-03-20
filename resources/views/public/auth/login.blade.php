@@ -3,7 +3,7 @@
 @section('title')
 Login
 @endsection
-@section('scripts')
+@section('styles')
 <style>
     .login-form {
         width: 500px;
@@ -114,7 +114,7 @@ Login
         </form>
         <p class="text-muted text-center m-2 or-text">OR</p>
         <a href="{{ url('auth/redirect','facebook') }}" class="btn-facebook">Continue with Facebbok</a>
-        <button class="btn-linkden">Continue with Linkden</button>
+        <a  href="{{ url('auth/redirect','linkedin') }}" class="btn-linkden">Continue with Linkedin</a>
 
         <p class="mt-5 text-center">New to Indiegogo? <a href="{{ route('register') }}" class="h5">Sign up</a></p>
     </div>
