@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ asset('css/app.css') }}">
   <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
   <link rel="stylesheet" href="{{ asset('css/home.css') }}">
   <title>Indiegogo</title>
@@ -61,7 +61,7 @@
         <div id="main-slider-signup-ad-heading">Find it first on Indiegogo.</div>
         <div id="main-slider-signup-ad-description">Indiegogo is where early adopters and innovation seekers find lively, imaginative tech before it hits the mainstream.</div>
         <div id="main-slider-signup-ad-buttons">
-          <a href="#">
+          <a href="{{ Route('register') }}">
             <div id="main-slider-signup-ad-button1">
               Sign Up Now
             </div>

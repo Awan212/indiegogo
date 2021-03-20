@@ -17,13 +17,9 @@ class User
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::user()->role_id == 2)
+        if(Auth::guard('web')->user()->role_id == 2)
         {
             return $next($request);
-        }
-        else
-        {
-            return redirect()->route('admin.dashboard');
         }
     }
 }

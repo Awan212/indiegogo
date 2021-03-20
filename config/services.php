@@ -1,18 +1,17 @@
 <?php
 
 return [
+    'facebook' => [
+        'client_id' => '1247323179025347',
+        'client_secret' => '591d11bcdedf7f9e8759b44c3be54377',
+        'redirect' => 'http://localhost:8000/callback/facebook',
+    ],
 
-    /*
-    |--------------------------------------------------------------------------
-    | Third Party Services
-    |--------------------------------------------------------------------------
-    |
-    | This file is for storing the credentials for third party services such
-    | as Mailgun, Postmark, AWS and more. This file provides the de facto
-    | location for this type of information, allowing packages to have
-    | a conventional file to locate the various service credentials.
-    |
-    */
+    'linkedin' => [
+        'client_id' => '770hx55jdxfwxm',
+        'client_secret' => 'XCs1vrKfA6uOXHLH',
+        'redirect' => 'http://localhost:8000/callback/linkedin',
+    ],
 
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),
