@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\Auth\LoginController;
 use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\CountryBankController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\HomeController;
@@ -23,16 +24,16 @@ Route::get('/', function () {
 Route::group([
     'as' => 'admin.',
     'prefix' => 'admin',
-], function(){
+], function () {
 
     // guest routes of admin
-    Route::middleware(['guest:admin'])->group(function(){
-       Route::get('/', [LoginController::class, 'showForm'])->name('loginForm');
-       Route::post('/login', [LoginController::class, 'login'])->name('login');
+    Route::middleware(['guest:admin'])->group(function () {
+        Route::get('/', [LoginController::class, 'showForm'])->name('loginForm');
+        Route::post('/login', [LoginController::class, 'login'])->name('login');
     });
 
     // auth routes of admin
-    Route::middleware(['auth:admin'])->group(function(){
+    Route::middleware(['auth:admin'])->group(function () {
         // admin logout
         Route::post('logout', [LoginController::class, 'logout'])->name('logout');
         // Admin Dashboard
@@ -52,14 +53,14 @@ Route::group([
 
         // country banks list
         Route::resource('country-banks', CountryBankController::class);
-     });
+    });
 });
 
 
 
 // users routes
 
-Route::middleware(['guest:web'])->group(function(){
+Route::middleware(['guest:web'])->group(function () {
     Auth::routes();
 });
 
@@ -70,7 +71,7 @@ Route::get('/auth/redirect/{driver}', function (Request $request) {
 Route::get('/callback/{driver}', [App\Http\Controllers\Auth\RegisterController::class, 'socail_login']);
 
 
-Route::middleware(['auth:web'])->group(function(){
+Route::middleware(['auth:web'])->group(function () {
     // user logout
     Route::get('logout', [HomeController::class, 'logout']);
 
@@ -85,15 +86,18 @@ Route::middleware(['auth:web'])->group(function(){
 
     Route::get('deactivate_aacount', [SettingController::class, 'deactivate']);
 
+
+    //start a compaing
+    Route::resource('campaign', CampaignController::class);
+
     // compaign route
-    Route::get('campaign', function(){
-        return view('public.pages.compaign.index');
-    })->name('compagin');
+    // Route::get('campaign', function () {
+    // return view('public.pages.compaign.index');
+    // })->name('compagin');
 });
 
 
 
-Route::get('project', function(){
+Route::get('project', function () {
     return view('project');
 });
-

@@ -21,7 +21,7 @@
     @include('public.partials.navbar')
     {{-- @include('public.partials.sidebar') --}}
 
-     @yield('content')
+    @yield('content')
 
 
     @include('public.partials.footer')
