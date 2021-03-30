@@ -45,6 +45,7 @@
         font-size: 23px;
         border-radius: 10px;
     }
+
     .btn-save:hover {
         opacity: .8;
     }
@@ -112,10 +113,12 @@
                 <hr>
 
                 <label for="" class="text-muted">Short Description</label>
-                <input type="text" name="short_description" id="" class="form-control w-75" value="{{ Auth::guard('web')->user()->short_description }}">
+                <input type="text" name="short_description" id="" class="form-control w-75"
+                    value="{{ Auth::guard('web')->user()->short_description }}">
 
                 <label for="" class="text-muted">About Me</label>
-                <textarea name="about_me" id="about_me" cols="90" rows="10" class="form-control w-75">{{ Auth::guard('web')->user()->about_me }}</textarea>
+                <textarea name="about_me" id="about_me" cols="90" rows="10"
+                    class="form-control w-75">{{ Auth::guard('web')->user()->about_me }}</textarea>
             </div>
 
             <div class="bg-light p-2 mt-2">
@@ -123,39 +126,23 @@
                 <hr>
 
                 <label for="" class="text-muted">Facbook Link</label>
-                <input type="url"
-                    name="facebook_link"
-                    id="facebook_link"
-                    class="form-control w-75"
-                    value="{{ Auth::guard('web')->user()->facebook_link }}"
-                    >
+                <input type="url" name="facebook_link" id="facebook_link" class="form-control w-75"
+                    value="{{ Auth::guard('web')->user()->facebook_link }}">
 
                 <label for="" class="text-muted">Twitter Link</label>
-                <input type="url"
-                    name="twitter_link"
-                    id="twitter_link"
-                    class="form-control w-75"
+                <input type="url" name="twitter_link" id="twitter_link" class="form-control w-75"
                     value="{{ Auth::guard('web')->user()->twitter_link }}">
 
                 <label for="" class="text-muted">YouTube Link</label>
-                <input type="url"
-                    name="youtube_link"
-                    id="youtube_link"
-                    class="form-control w-75"
+                <input type="url" name="youtube_link" id="youtube_link" class="form-control w-75"
                     value="{{ Auth::guard('web')->user()->youTube_link }}">
 
                 <label for="" class="text-muted">IMDb Link</label>
-                <input type="url"
-                    name="imdb_link"
-                    id="imdb_link"
-                    class="form-control w-75"
+                <input type="url" name="imdb_link" id="imdb_link" class="form-control w-75"
                     value="{{ Auth::guard('web')->user()->IMDb_link }}">
 
                 <label for="" class="text-muted">Website Link</label>
-                <input type="url"
-                    name="website_link"
-                    id="website_link"
-                    class="form-control w-75"
+                <input type="url" name="website_link" id="website_link" class="form-control w-75"
                     value="{{ Auth::guard('web')->user()->website_link }}">
 
             </div>
@@ -171,13 +158,5 @@
 
 
 @section('scripts')
-
-<!-- BEGIN: Vendor JS-->
-
-<!-- BEGIN Vendor JS-->
-
-<!-- BEGIN: Page JS-->
-
-<!-- BEGIN Page JS-->
 
 @endsection

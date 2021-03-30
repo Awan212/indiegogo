@@ -3,7 +3,7 @@
     <div class="row">
 
         <!-- Left side of navbar -->
-        <div class="col-6">
+        <div class="col-8">
             <div class="">
 
                 <!-- Indiegogo logo -->
@@ -19,25 +19,22 @@
                 </div>
 
                 <ul id="nav-menu-container">
+
                     <li class="nav-menu-item">
-                        Explore
-                        <svg viewBox="0 0 12 8" id="v-down_caret" style="height: 7px;">
-                            <path
-                                d="M2.706.706A.997.997 0 001.289.71l-.578.578a1.01 1.01 0 000 1.423l4.577 4.576a1.01 1.01 0 001.424 0l4.576-4.576a1 1 0 00.001-1.423L10.711.71A1 1 0 009.294.706L6 4 2.706.706z">
-                            </path>
-                        </svg>
-                    </li>
-                    <li class="nav-menu-item">
-                        <a href="#">
-                            What We Do
+                        <a href="{{ Route('home') }}">
+                            Home
                         </a>
                     </li>
                     <li class="nav-menu-item">
-                        <svg viewBox="0 0 16 16" style="height: 16px;width: 16px" id="v-search">
-                            <path
-                                d="M1.718 6.323c0-2.534 2.035-4.59 4.546-4.59s4.546 2.056 4.546 4.59c0 2.535-2.035 4.59-4.546 4.59-2.51 0-4.546-2.055-4.546-4.59m13.98 7.478l-4.123-4.127c.604-.972.954-2.12.954-3.351C12.528 2.83 9.723 0 6.264 0 2.804 0 0 2.83 0 6.323c0 3.492 2.804 6.323 6.263 6.323a6.2 6.2 0 003.449-1.044l4.09 4.096a1.031 1.031 0 001.46 0l.434-.437a1.033 1.033 0 000-1.46">
-                            </path>
-                        </svg>
+                        Category
+                    </li>
+                    <li class="nav-menu-item">
+                        Are you a backer?
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="#">
+                            Are you an Entrepreneur?
+                        </a>
                     </li>
                 </ul>
 
@@ -45,7 +42,7 @@
         </div>
 
         <!-- Right side of navbar -->
-        <div class="col-6">
+        <div class="col-4">
             <ul id="nav-menu-container">
                 @guest
                 <li class="nav-menu-item" style="float: right;margin-right:5px">
@@ -61,11 +58,8 @@
                 @else
                 <li class="nav-menu-item  dropdown" style="float: right;margin-right:5px">
                     <span class="">
-                        <img src="{{ Auth::guard('web')->user()->avatar }}"
-                        width="30px"
-                        height="30px"
-                        class="login-divider"
-                        style="border-radius:100%; overflow:hidden;">
+                        <img src="{{ Auth::guard('web')->user()->avatar }}" width="30px" height="30px"
+                            class="login-divider" style="border-radius:100%; overflow:hidden;">
                         {{ Auth::guard('web')->user()->first_name }}
                     </span>
                     <div class="dropdown-content ">
@@ -79,13 +73,8 @@
                 @endguest
 
                 <li class="nav-menu-item" style="float: right;margin-right: 25px;">
-                    <a href="#">
+                    <a href="{{ Route('campaign.create') }}">
                         Start A Campaign
-                    </a>
-                </li>
-                <li class="nav-menu-item" style="float: right;margin-right:5px">
-                    <a href="#">
-                        For Entrepreneurs
                     </a>
                 </li>
             </ul>

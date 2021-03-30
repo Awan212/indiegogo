@@ -3,7 +3,7 @@
 @section('title')
 Login
 @endsection
-@section('scripts')
+@section('styles')
 <style>
     .login-form {
         width: 500px;
@@ -86,21 +86,16 @@ Login
             <h2 class="text-center font-weight-bold">Welcome Back!</h2>
             <p class="text-muted text-center">Log in to continue.</p>
             <label for="email">Email</label>
-            <input type="email"
-                name="email"
-                id="email"
-                class="form-control @error('email') is-invalid @enderror"
+            <input type="email" name="email" id="email" class="form-control @error('email') is-invalid @enderror"
                 value="{{ old('email') }}">
             @error('email')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
             @enderror
 
             <label for="password">Password</label>
-            <input type="password"
-                name="password"
-                id="password"
+            <input type="password" name="password" id="password"
                 class="form-control @error('password') is-invalid @enderror">
             @error('password')
             <span class="invalid-feedback" role="alert">
@@ -114,7 +109,7 @@ Login
         </form>
         <p class="text-muted text-center m-2 or-text">OR</p>
         <a href="{{ url('auth/redirect','facebook') }}" class="btn-facebook">Continue with Facebbok</a>
-        <button class="btn-linkden">Continue with Linkden</button>
+        <a href="{{ url('auth/redirect','linkedin') }}" class="btn-linkden">Continue with Linkedin</a>
 
         <p class="mt-5 text-center">New to Indiegogo? <a href="{{ route('register') }}" class="h5">Sign up</a></p>
     </div>

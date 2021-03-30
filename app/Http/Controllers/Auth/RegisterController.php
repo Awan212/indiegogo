@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Socialite\Facades\Socialite;
 use Auth;
+
 class RegisterController extends Controller
 {
     /*
@@ -79,13 +80,11 @@ class RegisterController extends Controller
     {
         $user = Socialite::driver($driver)->user();
         $check = User::where('email', $user->email)->first();
-        if($check)
-        {
+        if ($check) {
             Auth::loginUsingId($check->id);
             return redirect()->route('home');
-        }
-        else {
-            User::create([
+        } else {
+            $user = User::create([
                 'first_name' => $user->name,
                 'last_name' => $user->name,
                 'email' => $user->email,
@@ -94,7 +93,7 @@ class RegisterController extends Controller
                 'avatar'      => $user->avatar,
                 'password' => Hash::make('password'),
             ]);
-            Auth::loginUsingId($check->id);
+            Auth::login($user);
             return redirect()->route('home');
         }
     }
