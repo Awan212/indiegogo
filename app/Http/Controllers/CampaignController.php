@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Campaign;
 use App\Http\Controllers\Controller;
+use App\Models\Country;
+use App\Models\CountryBank;
 use Illuminate\Http\Request;
 
 class CampaignController extends Controller
@@ -25,9 +27,24 @@ class CampaignController extends Controller
      */
     public function create()
     {
-        return view('public.pages.campaign.index');
+        return view('public.pages.campaign.main');
     }
 
+    public function create_campaign()
+    {
+        return view('public.pages.campaign.create', [
+            'countries' => Country::get(),
+            'banks'     => CountryBank::get()
+        ]);
+    }
+
+    public function store_campaign()
+    {
+        return view('public.pages.campaign.index', [
+            'countries' => Country::get(),
+            'banks'     => CountryBank::get()
+        ]);
+    }
     /**
      * Store a newly created resource in storage.
      *
