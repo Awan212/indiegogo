@@ -88,6 +88,8 @@ Route::middleware(['auth:web'])->group(function () {
 
 
     //start a compaing
+    Route::get('create-campagin', [CampaignController::class, 'create_campaign']);
+    Route::post('create-campagin', [CampaignController::class, 'store_campaign']);
     Route::resource('campaign', CampaignController::class);
 
     // compaign route
